@@ -1,3 +1,36 @@
+🧠 Open-Manus-BR — Fork avançado e adaptado do Foundation Agents OpenMANUS
+Este repositório é um fork do Foundation Agents (OpenMANUS), reestruturado e ampliado para tornar a automação por agentes de IA mais robusta, flexível e adaptada ao contexto brasileiro.
+Todo o desenvolvimento foi assistido por IA, incorporando diversas ideias originais do prompt Manus, mas trazendo melhorias de performance e organização.
+
+Funcionalidades Principais
+🔄 Controle total do loop e execução prolongada:
+O agente não encerra tarefas sem a autorização do usuário, permitindo execuções prolongadas que podem durar até 7 dias seguidos — ideal para processos intensivos como web scraping, automação de tarefas extensas e experimentos em machine learning.
+
+✋ Intervenção humana facilitada (AskHuman):
+Se houver dúvida, falha ou necessidade de decisão, o sistema pode acionar o usuário no meio da execução, perguntando como deve proceder, evitando travamentos e melhorando a colaboração homem-máquina.
+
+⏸️ Pausa e controle de execução:
+O usuário pode pausar, retomar ou cancelar processos com facilidade (inclusive usando CTRL-C duas vezes para interromper execuções demoradas).
+
+🛠️ Agente de autodiagnóstico:
+Um agente especializado monitora os processos em tempo real, identificando falhas e ajudando na manutenção proativa.
+
+🗂️ Organização e fragmentação inteligente das tarefas:
+O sistema passou por uma profunda reorganização do prompt (inspirado no Manus original), o que gerou ganhos perceptíveis de performance e organização. Agora, os agentes fragmentam as tarefas automaticamente e executam cada etapa de forma sequencial e mais eficiente.
+
+📝 Controle de passos personalizável:
+O usuário define quantos passos o agente deve executar em cada atividade, tornando a automação adaptável a diferentes fluxos de trabalho.
+
+💾 Salvamento de locks e logs detalhados:
+As execuções agora geram registros (locks), úteis tanto para depuração quanto para análises futuras, inclusive possibilitando uso de machine learning para aprimoramento do agente com dados reais.
+
+💡 Prompt em português, com foco em clareza e produtividade:
+Todo o ambiente foi traduzido e adaptado, facilitando o uso em projetos nacionais e tornando a interface muito mais amigável para falantes de português.
+
+🧑‍💻 Aprimoramento do agente de codificação:
+O agente responsável por executar e sugerir códigos recebeu upgrades para ser mais ágil e preciso, especialmente em fluxos longos.
+
+
 <p align="center">
   <img src="assets/logo.jpg" width="200"/>
 </p>
