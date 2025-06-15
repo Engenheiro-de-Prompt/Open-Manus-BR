@@ -1,35 +1,3 @@
-🧠 Open-Manus-BR — Advanced and adapted fork of Foundation Agents OpenMANUS
-This repository is a fork of Foundation Agents (OpenMANUS), restructured and expanded to make AI agent automation more robust, flexible, and adapted to the Brazilian context.
-All development was AI-assisted, incorporating several original ideas from the Manus prompt, but bringing performance and organizational improvements.
-
-Main Features
-🔄 Full loop control and prolonged execution:
-The agent does not end tasks without user authorization, allowing prolonged executions that can last up to 7 consecutive days — ideal for intensive processes such as web scraping, extensive task automation, and machine learning experiments.
-
-✋ Facilitated human intervention (AskHuman):
-If there is doubt, failure, or need for a decision, the system can trigger the user mid-execution, asking how to proceed, avoiding freezes and improving human-machine collaboration.
-
-⏸️ Pause and execution control:
-The user can pause, resume, or cancel processes easily (including using CTRL-C twice to interrupt long-running executions).
-
-🛠️ Self-diagnostic agent:
-A specialized agent monitors processes in real-time, identifying failures and helping with proactive maintenance.
-
-🗂️ Organization and intelligent task fragmentation:
-The system underwent a profound reorganization of the prompt (inspired by the original Manus), which generated noticeable gains in performance and organization. Now, agents automatically fragment tasks and execute each step sequentially and more efficiently.
-
-📝 Customizable step control:
-The user defines how many steps the agent should execute in each activity, making automation adaptable to different workflows.
-
-💾 Saving of locks and detailed logs:
-Executions now generate records (locks), useful for both debugging and future analysis, including enabling the use of machine learning for agent improvement with real data.
-
-💡 Portuguese-centric prompt environment:
-The entire environment was translated and adapted for Portuguese, facilitating its use in Brazilian projects and making the interface much more user-friendly for Portuguese speakers.
-
-🧑‍💻 Coding agent enhancement:
-The agent responsible for executing and suggesting code has received upgrades to be more agile and precise, especially in long flows.
-
 
 <p align="center">
   <img src="assets/logo.jpg" width="200"/>
