@@ -1,35 +1,33 @@
-🧠 Open-Manus-BR — Fork avançado e adaptado do Foundation Agents OpenMANUS
-Este repositório é um fork do Foundation Agents (OpenMANUS), reestruturado e ampliado para tornar a automação por agentes de IA mais robusta, flexível e adaptada ao contexto brasileiro.
-Todo o desenvolvimento foi assistido por IA, incorporando diversas ideias originais do prompt Manus, mas trazendo melhorias de performance e organização.
+🧠 Open-Manus-BR — Fork avançado do Foundation Agents OpenMANUS
+Este repositório é um fork do Foundation Agents (OpenMANUS), adaptado para o português, com diversas melhorias e recursos inéditos para quem busca autonomia, robustez e flexibilidade na automação por agentes LLM.
 
-Funcionalidades Principais
-🔄 Controle total do loop e execução prolongada:
-O agente não encerra tarefas sem a autorização do usuário, permitindo execuções prolongadas que podem durar até 7 dias seguidos — ideal para processos intensivos como web scraping, automação de tarefas extensas e experimentos em machine learning.
+Funcionalidades detalhadas
+Execução prolongada de código (principal diferencial):
+Agora é possível executar códigos que podem rodar de forma contínua por até 7 dias ou mais, sem aumentar o consumo de API. O agente mantém o processo ativo e controlado durante todo esse tempo, permitindo tarefas realmente longas, como automação pesada, web scraping de alto volume ou treinamentos de IA, sem interrupções e sem custos adicionais de API.
 
-✋ Intervenção humana facilitada (AskHuman):
-Se houver dúvida, falha ou necessidade de decisão, o sistema pode acionar o usuário no meio da execução, perguntando como deve proceder, evitando travamentos e melhorando a colaboração homem-máquina.
+Loop sob controle do usuário:
+O agente nunca encerra tarefas sem permissão explícita, garantindo supervisão total do usuário durante toda a execução.
 
-⏸️ Pausa e controle de execução:
-O usuário pode pausar, retomar ou cancelar processos com facilidade (inclusive usando CTRL-C duas vezes para interromper execuções demoradas).
+Controle de passos personalizado:
+O usuário pode definir quantos passos o agente deve executar para cada atividade, tornando possível realizar tarefas mais extensas ou detalhadas conforme a necessidade, com acompanhamento granular do progresso.
 
-🛠️ Agente de autodiagnóstico:
-Um agente especializado monitora os processos em tempo real, identificando falhas e ajudando na manutenção proativa.
+Intervenção humana (AskHuman):
+Se surgir qualquer dúvida, erro ou decisão a tomar, o sistema pode perguntar diretamente ao usuário como prosseguir, facilitando a resolução de bloqueios durante a automação.
 
-🗂️ Organização e fragmentação inteligente das tarefas:
-O sistema passou por uma profunda reorganização do prompt (inspirado no Manus original), o que gerou ganhos perceptíveis de performance e organização. Agora, os agentes fragmentam as tarefas automaticamente e executam cada etapa de forma sequencial e mais eficiente.
+Pausa e retomada a qualquer momento:
+O usuário pode pausar ou cancelar processos com segurança sempre que desejar (com comando especial ou CTRL-C duas vezes para interrupção imediata).
 
-📝 Controle de passos personalizável:
-O usuário define quantos passos o agente deve executar em cada atividade, tornando a automação adaptável a diferentes fluxos de trabalho.
+Agente de autodiagnóstico:
+Um agente dedicado monitora e identifica problemas de execução, proporcionando manutenção proativa e mais estabilidade para execuções prolongadas.
 
-💾 Salvamento de locks e logs detalhados:
-As execuções agora geram registros (locks), úteis tanto para depuração quanto para análises futuras, inclusive possibilitando uso de machine learning para aprimoramento do agente com dados reais.
+Logs e salvamento de locks:
+Todo o fluxo é registrado com locks detalhados, possibilitando análises futuras, aprendizado de máquina sobre as execuções e aprimoramento contínuo do agente.
 
-💡 Prompt em português, com foco em clareza e produtividade:
-Todo o ambiente foi traduzido e adaptado, facilitando o uso em projetos nacionais e tornando a interface muito mais amigável para falantes de português.
+Prompt e interface em português, inspirado no Manus original:
+O prompt foi reformulado com base no Manus, em português, e reorganizado para maior clareza, desempenho e melhor fragmentação de tarefas. Os agentes agora criam, organizam e executam tarefas de maneira mais inteligente e sequencial.
 
-🧑‍💻 Aprimoramento do agente de codificação:
-O agente responsável por executar e sugerir códigos recebeu upgrades para ser mais ágil e preciso, especialmente em fluxos longos.
-
+Aprimoramento do agente de codificação:
+O agente responsável por execução e sugestão de códigos recebeu melhorias de eficiência, tornando-o mais ágil em fluxos longos e complexos.
 
 <p align="center">
   <img src="assets/logo.jpg" width="200"/>
