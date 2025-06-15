@@ -136,11 +136,11 @@ class BaseAgent(BaseModel, ABC):
                 self.update_memory("user", request)
             self.state = AgentState.RUNNING
         elif self.state == AgentState.AWAITING_USER_FEEDBACK:
-            if request: # Se um novo request/input do usuário for fornecido diretamente ao run()
+            if request: # If a new request/input from the user is provided directly to run()
                 self.update_memory("user", request)
-                self.state = AgentState.RUNNING # Mudar para RUNNING para processar o novo request
-            else: # Se run() for chamado sem novo request, mas esperamos que o feedback já esteja na memória
-                self.state = AgentState.RUNNING # Mudar para RUNNING para continuar o processamento
+                self.state = AgentState.RUNNING # Change to RUNNING to process the new request
+            else: # If run() is called without a new request, but we expect feedback to already be in memory
+                self.state = AgentState.RUNNING # Change to RUNNING to continue processing
         elif self.state == AgentState.RUNNING: # Explicitly allow re-calling run if already running (e.g. internal restart)
              if request: # If a new request is passed, it might mean a change of plans.
                  self.update_memory("user", request)

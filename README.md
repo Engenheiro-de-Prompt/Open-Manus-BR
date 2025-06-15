@@ -1,34 +1,34 @@
-🧠 Open-Manus-BR — Fork avançado e adaptado do Foundation Agents OpenMANUS
-Este repositório é um fork do Foundation Agents (OpenMANUS), reestruturado e ampliado para tornar a automação por agentes de IA mais robusta, flexível e adaptada ao contexto brasileiro.
-Todo o desenvolvimento foi assistido por IA, incorporando diversas ideias originais do prompt Manus, mas trazendo melhorias de performance e organização.
+🧠 Open-Manus-BR — Advanced and adapted fork of Foundation Agents OpenMANUS
+This repository is a fork of Foundation Agents (OpenMANUS), restructured and expanded to make AI agent automation more robust, flexible, and adapted to the Brazilian context.
+All development was AI-assisted, incorporating several original ideas from the Manus prompt, but bringing performance and organizational improvements.
 
-Funcionalidades Principais
-🔄 Controle total do loop e execução prolongada:
-O agente não encerra tarefas sem a autorização do usuário, permitindo execuções prolongadas que podem durar até 7 dias seguidos — ideal para processos intensivos como web scraping, automação de tarefas extensas e experimentos em machine learning.
+Main Features
+🔄 Full loop control and prolonged execution:
+The agent does not end tasks without user authorization, allowing prolonged executions that can last up to 7 consecutive days — ideal for intensive processes such as web scraping, extensive task automation, and machine learning experiments.
 
-✋ Intervenção humana facilitada (AskHuman):
-Se houver dúvida, falha ou necessidade de decisão, o sistema pode acionar o usuário no meio da execução, perguntando como deve proceder, evitando travamentos e melhorando a colaboração homem-máquina.
+✋ Facilitated human intervention (AskHuman):
+If there is doubt, failure, or need for a decision, the system can trigger the user mid-execution, asking how to proceed, avoiding freezes and improving human-machine collaboration.
 
-⏸️ Pausa e controle de execução:
-O usuário pode pausar, retomar ou cancelar processos com facilidade (inclusive usando CTRL-C duas vezes para interromper execuções demoradas).
+⏸️ Pause and execution control:
+The user can pause, resume, or cancel processes easily (including using CTRL-C twice to interrupt long-running executions).
 
-🛠️ Agente de autodiagnóstico:
-Um agente especializado monitora os processos em tempo real, identificando falhas e ajudando na manutenção proativa.
+🛠️ Self-diagnostic agent:
+A specialized agent monitors processes in real-time, identifying failures and helping with proactive maintenance.
 
-🗂️ Organização e fragmentação inteligente das tarefas:
-O sistema passou por uma profunda reorganização do prompt (inspirado no Manus original), o que gerou ganhos perceptíveis de performance e organização. Agora, os agentes fragmentam as tarefas automaticamente e executam cada etapa de forma sequencial e mais eficiente.
+🗂️ Organization and intelligent task fragmentation:
+The system underwent a profound reorganization of the prompt (inspired by the original Manus), which generated noticeable gains in performance and organization. Now, agents automatically fragment tasks and execute each step sequentially and more efficiently.
 
-📝 Controle de passos personalizável:
-O usuário define quantos passos o agente deve executar em cada atividade, tornando a automação adaptável a diferentes fluxos de trabalho.
+📝 Customizable step control:
+The user defines how many steps the agent should execute in each activity, making automation adaptable to different workflows.
 
-💾 Salvamento de locks e logs detalhados:
-As execuções agora geram registros (locks), úteis tanto para depuração quanto para análises futuras, inclusive possibilitando uso de machine learning para aprimoramento do agente com dados reais.
+💾 Saving of locks and detailed logs:
+Executions now generate records (locks), useful for both debugging and future analysis, including enabling the use of machine learning for agent improvement with real data.
 
-💡 Prompt em português, com foco em clareza e produtividade:
-Todo o ambiente foi traduzido e adaptado, facilitando o uso em projetos nacionais e tornando a interface muito mais amigável para falantes de português.
+💡 Portuguese-centric prompt environment:
+The entire environment was translated and adapted for Portuguese, facilitating its use in Brazilian projects and making the interface much more user-friendly for Portuguese speakers.
 
-🧑‍💻 Aprimoramento do agente de codificação:
-O agente responsável por executar e sugerir códigos recebeu upgrades para ser mais ágil e preciso, especialmente em fluxos longos.
+🧑‍💻 Coding agent enhancement:
+The agent responsible for executing and suggesting code has received upgrades to be more agile and precise, especially in long flows.
 
 
 <p align="center">

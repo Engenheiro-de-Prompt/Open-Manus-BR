@@ -22,7 +22,7 @@ class ChecklistManager:
         """
         self.checklist_path = config.workspace_root / checklist_filename
         logger.info(f"ChecklistManager initialized for: {self.checklist_path}")
-        self.tasks: List[Dict[str, str]] = []  # e.g., [{'description': 'Do X', 'status': 'Pendente'}]
+        self.tasks: List[Dict[str, str]] = []  # e.g., [{'description': 'Do X', 'status': 'Pending'}]
         self.file_operator = LocalFileOperator()
         # _load_checklist will be called explicitly by the tool after instantiation if needed.
 
@@ -50,15 +50,15 @@ class ChecklistManager:
 
             self.tasks = [] # Reset tasks before loading
             # Pattern to match: - [Status] Description
-            # Status can be Pendente, Em Andamento, Concluído, Bloqueado (case insensitive)
-            task_pattern = re.compile(r"-\s*\[(Pendente|Em Andamento|Concluído|Bloqueado)\]\s*(.+)", re.IGNORECASE)
+            # Status can be Pending, In Progress, Completed, Blocked (case insensitive)
+            task_pattern = re.compile(r"-\s*\[(Pending|In Progress|Completed|Blocked)\]\s*(.+)", re.IGNORECASE)
             for line_number, line in enumerate(content.splitlines()):
                 line = line.strip()
                 if not line: # Skip empty lines
                     continue
                 match = task_pattern.match(line)
                 if match:
-                    status = match.group(1).capitalize() # Ensure consistent capitalization (e.g., "concluído" -> "Concluído")
+                    status = match.group(1).capitalize() # Ensure consistent capitalization (e.g., "completed" -> "Completed")
                     description = match.group(2).strip()
                     self.tasks.append({'description': description, 'status': status})
                 else:
@@ -76,13 +76,13 @@ class ChecklistManager:
             # if app.exceptions.ToolError is a wrapper.
             # If LocalFileOperator can raise FileNotFoundError directly (e.g. if it's not caught and wrapped by ToolError):
             # except FileNotFoundError:
-            #    logger.info(f"Arquivo de checklist '{self.checklist_path}' não encontrado. Iniciando com uma checklist vazia.")
+            #    logger.info(f"Checklist file '{self.checklist_path}' not found. Starting with an empty checklist.")
             #    self.tasks = []
             #
             # Given the current structure (ToolError wrapping), we stick to string checking for "File not found"
             if "File not found" in str(e) or "No such file or directory" in str(e):
                 # This is the specific log message requested by the issue for FileNotFoundError
-                logger.info(f"Arquivo de checklist '{self.checklist_path}' não encontrado. Iniciando com uma checklist vazia.")
+                logger.info(f"Checklist file '{self.checklist_path}' not found. Starting with an empty checklist.")
             else:
                 # Log other ToolErrors
                 logger.error(f"ToolError occurred while reading checklist file {self.checklist_path}: {e}")
@@ -118,13 +118,13 @@ class ChecklistManager:
         """
         return [task.copy() for task in self.tasks]
 
-    async def add_task(self, task_description: str, status: str = "Pendente") -> bool:
+    async def add_task(self, task_description: str, status: str = "Pending") -> bool:
         """
         Adds a new task to the checklist.
 
         Args:
             task_description: The description of the task.
-            status: The initial status of the task (default: "Pendente").
+            status: The initial status of the task (default: "Pending").
 
         Returns:
             True if the task was added, False if a task with the same description already exists.
@@ -184,7 +184,7 @@ class ChecklistManager:
 
     def is_task_complete(self, task_description: str) -> bool:
         """
-        Checks if a specific task is marked as "Concluído".
+        Checks if a specific task is marked as "Completed".
 
         Args:
             task_description: The description of the task.
@@ -194,25 +194,25 @@ class ChecklistManager:
         """
         task = self.get_task_by_description(task_description)
         if task:
-            return task['status'] == "Concluído"
+            return task['status'] == "Completed"
         return False
 
     def are_all_tasks_complete(self) -> bool:
         """
-        Checks if all tasks in the checklist are marked as "Concluído".
+        Checks if all tasks in the checklist are marked as "Completed".
 
         Returns:
-            True if all tasks are "Concluído", or if there are no tasks.
-            False if any task is not "Concluído".
+            True if all tasks are "Completed", or if there are no tasks.
+            False if any task is not "Completed".
         """
         if not self.tasks:
             logger.info("are_all_tasks_complete: No tasks in checklist, returning False.")
             return False # No tasks means not complete
         for task in self.tasks:
-            if task.get('status', '').lower() != 'concluído': # Use .lower() for case-insensitivity
-                logger.info(f"are_all_tasks_complete: Task '{task.get('description')}' is not 'Concluído'. Status: '{task.get('status')}'. Returning False.")
+            if task.get('status', '').lower() != 'completed': # Use .lower() for case-insensitivity
+                logger.info(f"are_all_tasks_complete: Task '{task.get('description')}' is not 'Completed'. Status: '{task.get('status')}'. Returning False.")
                 return False
-        logger.info("are_all_tasks_complete: All tasks are 'Concluído', returning True.")
+        logger.info("are_all_tasks_complete: All tasks are 'Completed', returning True.")
         return True
 
 if __name__ == '__main__':
@@ -233,29 +233,29 @@ if __name__ == '__main__':
 
     print(f"Initial tasks: {manager.get_tasks()}")
 
-    manager.add_task("  Tarefa Inicial 1  ")
-    manager.add_task("Tarefa Inicial 2", status="Em Andamento")
-    manager.add_task("Tarefa já existente para teste de duplicidade")
-    manager.add_task("Tarefa já existente para teste de duplicidade") # Try adding duplicate
+    manager.add_task("  Initial Task 1  ")
+    manager.add_task("Initial Task 2", status="In Progress")
+    manager.add_task("Existing task for duplicate test")
+    manager.add_task("Existing task for duplicate test") # Try adding duplicate
 
     print(f"Tasks after additions: {manager.get_tasks()}")
 
-    manager.update_task_status("Tarefa Inicial 1", "Concluído")
-    manager.update_task_status("tarefa inicial 2  ", "Concluído") # Test normalization
-    manager.update_task_status("Tarefa Inexistente", "Concluído")
+    manager.update_task_status("Initial Task 1", "Completed")
+    manager.update_task_status("initial task 2  ", "Completed") # Test normalization
+    manager.update_task_status("Non-existent Task", "Completed")
 
     print(f"Tasks after updates: {manager.get_tasks()}")
-    print(f"Is 'Tarefa Inicial 1' complete? {manager.is_task_complete('Tarefa Inicial 1')}")
+    print(f"Is 'Initial Task 1' complete? {manager.is_task_complete('Initial Task 1')}")
     print(f"Are all tasks complete? {manager.are_all_tasks_complete()}")
 
-    manager.add_task("Tarefa Pendente Final", "Pendente")
+    manager.add_task("Final Pending Task", "Pending")
     print(f"Are all tasks complete (after adding a pending one)? {manager.are_all_tasks_complete()}")
 
     # Test loading from existing file
     print("\n--- Testing loading from existing file ---")
     manager_reloaded = ChecklistManager(checklist_filename="test_checklist.md")
     print(f"Tasks reloaded: {manager_reloaded.get_tasks()}")
-    manager_reloaded.update_task_status("Tarefa Pendente Final", "Concluído")
+    manager_reloaded.update_task_status("Final Pending Task", "Completed")
     print(f"Are all tasks complete (reloaded manager)? {manager_reloaded.are_all_tasks_complete()}")
 
     # Test empty file scenario

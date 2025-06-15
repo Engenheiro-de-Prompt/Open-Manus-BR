@@ -67,7 +67,7 @@ class ToolCallAgent(ReActAgent):
             if not checklist_exists:
                 logger.info(f"Checklist file '{checklist_path_str}' not found or error during check at step 1. Enforcing creation.")
                 
-                initial_checklist_content = "- [Pendente] Decompor a solicitação do usuário e popular o checklist com as subtarefas."
+                initial_checklist_content = "- [Pending] Decompose the user request and populate the checklist with subtasks."
                 
                 # Manually construct the JSON string for arguments
                 # Manually construct the JSON string for arguments
@@ -88,7 +88,7 @@ class ToolCallAgent(ReActAgent):
                 
                 self.tool_calls = [forced_tool_call]
                 
-                assistant_thought_content = "A primeira ação é criar o checklist da tarefa para organizar o trabalho."
+                assistant_thought_content = "The first action is to create the task checklist to organize the work."
                 self.memory.add_message(
                     Message.from_tool_calls(content=assistant_thought_content, tool_calls=self.tool_calls)
                 )
